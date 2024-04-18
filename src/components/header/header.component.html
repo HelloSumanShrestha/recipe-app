@@ -1,0 +1,20 @@
+<nav>
+    <h1>Recipe App</h1>
+    <form action="" [formGroup]="formData" (ngSubmit)="handleSubmit()">
+        <input type="text" id="search-text" placeholder="Search for recipes" formControlName="searchItem">
+        <button type="submit">
+            <mat-icon>search</mat-icon>
+        </button>
+    </form>
+
+    <div class="your-recipes">
+        <span>Your Recipes</span>
+        <mat-icon>fastfood</mat-icon>
+    </div>
+
+    <div class="explore">
+        <span>Explore</span>
+        <mat-icon>explore</mat-icon>
+    </div>
+
+</nav>

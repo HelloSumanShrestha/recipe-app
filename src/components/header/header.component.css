@@ -1,0 +1,86 @@
+nav {
+    width: 70%;
+    height: 75px;
+  
+    margin: 0 auto;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+form {
+    width: 500px;
+    height: 50px;
+  
+    display: flex;
+    border: 1px solid #909090;
+    border-radius: 12px;
+    align-items: center;
+    padding: 0 8px;
+}
+  
+input {
+    width: 90%;
+    height: 90%;
+  
+    border: none;
+    outline: none;
+  
+    font-size: 1.2rem;
+    text-indent: 12px;
+}
+  
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    place-items: center;
+}
+  
+i {
+    font-size: 1.2rem;
+}
+  
+p {
+    font-size: 1.2rem;
+}
+  
+h1 {
+    font-size: 32px;
+    margin: 0;
+    font-weight: bold;
+}
+  
+.explore, .your-recipes {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+    border-radius: 12px;
+    padding: 0 12px;
+  
+    span {
+        font-family: "DM Serif Display";
+        font-size: 1.25rem;
+        transition: all 300ms ease;
+        margin: 0;
+  
+    }
+    
+    .material-icons {
+        width: auto;
+        height: auto;
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: black;
+    }
+
+    &:hover {
+        .material-icons, span{
+            color: #909090;
+        }
+    }
+}

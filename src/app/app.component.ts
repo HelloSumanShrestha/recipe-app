@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RecipesCollectionService } from '../services/recipes-collection.service';
+import { AddRecipeComponent } from '../components/add-recipe/add-recipe.component';
+import { HeaderComponent } from "../components/header/header.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [RouterOutlet, CommonModule, AddRecipeComponent, HeaderComponent]
 })
+
 export class AppComponent {
-  title = 'recipe-app';
+  constructor(private recipeService: RecipesCollectionService) { }
+
+  recipeCollection = this.recipeService.recipeCollection
 }
