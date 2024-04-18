@@ -1,44 +1,47 @@
 <div class="add-recipe-container">
     <form action="" [formGroup]="recipeFormData" (ngSubmit)="onAdd()">
+        <h2>Add Recipe</h2>
 
-        <div class="input-label-group">
-            <label for="">Recipe Title</label>
-            <input type="text" placeholder="Recipe Name" formControlName="strMeal">
+        <div class="input-group-container">
+
+            <div class="input-label-group">
+                <label for="">Recipe Title</label>
+                <input type="text" placeholder="Recipe Name" formControlName="strMeal">
+            </div>
+
+            <div class="input-label-group">
+                <label for="">Category</label>
+                <input type="text" placeholder="Category" formControlName="strCategory">
+            </div>
+
+            <div class="input-label-group">
+                <label for="">Food Origin</label>
+                <input type="text" placeholder="Area" formControlName="strArea">
+            </div>
+
+            <div class="input-label-group">
+                <label for="">Recipe Image URL</label>
+                <input type="text" placeholder="Recipe Image" formControlName="strMealThumb">
+            </div>
+
+            <div class="input-label-group">
+                <label for="">Tags</label>
+                <input type="text" placeholder="tags" formControlName="strTags">
+            </div>
+
+            <div class="input-label-group">
+                <label for="">Instructions</label>
+                <textarea type="text" formControlName="strInstructions"></textarea>
+            </div>
+
+            <div class="input-label-group">
+                <label for="">Ingredients</label>
+                <textarea type="text" formControlName="ingredients"></textarea>
+            </div>
         </div>
 
-        <div class="input-label-group">
-            <label for="">Category</label>
-            <input type="text" placeholder="Category" formControlName="strCategory">
+        <div class="add-button-container">
+            <button type="submit" [disabled]="!recipeFormData.valid">Add Product</button>
         </div>
-
-        <div class="input-label-group">
-            <label for="">Food Origin</label>
-            <input type="text" placeholder="Area" formControlName="strArea">
-        </div>
-
-        <div class="input-label-group">
-            <label for="">Recipe Image URL</label>
-            <input type="text" placeholder="Recipe Image" formControlName="strMealThumb">
-        </div>
-
-        <div class="input-label-group">
-            <label for="">Tags</label>
-            <input type="text" placeholder="tags" formControlName="strTags">
-        </div>
-
-        <div class="input-label-group">
-            <label for="">Instructions</label>
-            <textarea type="text" placeholder="Instructions" formControlName="strInstructions">
-            </textarea>
-        </div>
-
-
-
-        <div class="input-label-group">
-            <label for="">Ingredients</label>
-            <textarea type="text" placeholder="Ingredients" formControlName="ingredients"></textarea>
-        </div>
-
-        <button type="submit" [disabled]="!recipeFormData.valid">Add Product</button>
     </form>
 </div>

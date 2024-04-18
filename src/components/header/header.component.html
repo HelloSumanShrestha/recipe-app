@@ -1,5 +1,7 @@
 <nav>
-    <h1>Recipe App</h1>
+    <a routerLink="/">
+        <h1>Recipe App</h1>
+    </a>
     <form action="" [formGroup]="formData" (ngSubmit)="handleSubmit()">
         <input type="text" id="search-text" placeholder="Search for recipes" formControlName="searchItem">
         <button type="submit">
@@ -7,14 +9,20 @@
         </button>
     </form>
 
-    <div class="your-recipes">
-        <span>Your Recipes</span>
-        <mat-icon>fastfood</mat-icon>
-    </div>
+    <div class="header-shortcuts">
+        <div class="your-recipes">
+            <a routerLink="/my-recipes">
+                <span>My Recipes</span>
+            </a>
+            <mat-icon>fastfood</mat-icon>
+        </div>
 
-    <div class="explore">
-        <span>Explore</span>
-        <mat-icon>explore</mat-icon>
+        <div class="explore">
+            <a routerLink="/explore">
+                <span>Explore</span>
+            </a>
+            <mat-icon>explore</mat-icon>
+        </div>
     </div>
 
 </nav>

@@ -52,35 +52,41 @@ h1 {
     margin: 0;
     font-weight: bold;
 }
-  
-.explore, .your-recipes {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    cursor: pointer;
-    transition: all 250ms ease-in-out;
-    border-radius: 12px;
-    padding: 0 12px;
-  
-    span {
-        font-family: "DM Serif Display";
-        font-size: 1.25rem;
-        transition: all 300ms ease;
-        margin: 0;
-  
-    }
-    
-    .material-icons {
-        width: auto;
-        height: auto;
-        font-size: 1.5rem;
-        font-weight: 400;
-        color: black;
-    }
 
-    &:hover {
-        .material-icons, span{
-            color: #909090;
+.header-shortcuts{
+
+    display: flex;
+    gap: 25px;
+    .explore, .your-recipes {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        cursor: pointer;
+        transition: all 250ms ease-in-out;
+        border-radius: 12px;
+        padding: 0 12px;
+  
+        span {
+            font-family: "DM Serif Display";
+            font-size: 1.25rem;
+            transition: all 300ms ease;
+            margin: 0;
+            
+        }
+    
+        .material-icons {
+            width: auto;
+            height: auto;
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: all 300ms ease;
+            color: black;
+        }
+    
+        &:hover {
+            .material-icons, span{
+                color: #a3a3a3;
+            }
         }
     }
 }

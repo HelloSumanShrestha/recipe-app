@@ -1,5 +1,12 @@
-<!-- <app-add-recipe></app-add-recipe>
-<li *ngFor="let recipe of recipeCollection">{{recipe.strMeal}}</li> -->
-
 <!-- header components -->
+
 <app-header></app-header>
+<app-chips (updateState)="changeState($event)"></app-chips>
+
+<!-- Add Component -->
+@if (addActiveState) {
+<app-add-recipe></app-add-recipe>
+}
+
+<!-- For Routes -->
+<router-outlet></router-outlet>

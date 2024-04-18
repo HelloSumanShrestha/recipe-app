@@ -8,7 +8,6 @@ import { Recipe } from '../interface/recipe';
 export class RecipesCollectionService {
 
   recipeCollection: Recipe[] = []
-
   constructor() { }
 
   addRecipe(recipe: Recipe) {
