@@ -1,1 +1,37 @@
-<p>recipe-on-detail works!</p>
+<div class="recipe-card">
+    <div class="recipe-card-top">
+        <img [src]="recipe[0].strMealThumb" [alt]="recipe[0].strMeal">
+
+        <div class="recipe-card-top-text">
+            <h2>{{ recipe[0].strMeal }}</h2>
+            <span>{{ recipe[0].strCategory }}</span>
+            <span>{{ recipe[0].strArea }}</span>
+            <span>Tags : {{ recipe[0].strTags}}</span>
+        </div>
+    </div>
+
+    <div class="recipe-card-bottom">
+
+        <div class="ingredient">
+            <h2>
+                Ingredient
+            </h2>
+            <ul>
+                <ng-container *ngFor="let i of ingredients">
+                    <li *ngIf="i !== ''">{{ i }}</li>
+                </ng-container>
+            </ul>
+        </div>
+
+        <div class="instruction">
+            <h2>
+                Instructions
+            </h2>
+            <ul>
+                <ng-container *ngFor="let i of instructions">
+                    <li *ngIf="i !== ''">{{ i }}</li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</div>

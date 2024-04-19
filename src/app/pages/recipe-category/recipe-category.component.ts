@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryServiceService } from '../../../services/category-service.service';
 import { RecipeByCategory } from '../../../interface/recipebycategory';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-recipe-category',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './recipe-category.component.html',
   styleUrl: './recipe-category.component.css'
 })
