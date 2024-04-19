@@ -9,7 +9,7 @@ import { RecipeApi } from '../interface/recipe-api';
 
 export class CategoryServiceService {
 
-  categorySelected: string = ""
+  categorySelected: string = "Chicken"
   recipeSelected: string = "52885"
 
   constructor(private httpClient: HttpClient) { }

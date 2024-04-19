@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Recipe } from '../../interface/recipe';
 import { RecipesCollectionService } from '../../services/recipes-collection.service';
@@ -13,34 +13,29 @@ import { RecipesCollectionService } from '../../services/recipes-collection.serv
 
 export class AddRecipeComponent {
 
+  @Input() addActiveState: boolean = false
+  @Output() updateState = new EventEmitter<boolean>
+
   recipeFormData = new FormGroup({
+    idMeal: new FormControl(''),
+    strMeal: new FormControl('', Validators.required),
+    strCategory: new FormControl('', Validators.required),
+    strArea: new FormControl('', Validators.required),
+    strInstructions: new FormControl('', Validators.required),
+    strMealThumb: new FormControl('', Validators.required),
+    strTags: new FormControl('', Validators.required),
+    ingredients: new FormControl('', Validators.required)
+  });
 
-    idMeal: new FormControl(""),
-
-    strMeal: new FormControl(""),
-
-    strCategory: new FormControl(""),
-
-    strArea: new FormControl(""),
-
-    strInstructions: new FormControl(""),
-
-    strMealThumb: new FormControl(""),
-
-    strTags: new FormControl(""),
-
-    ingredients: new FormControl(""),
-  })
 
   constructor(private recipeService: RecipesCollectionService) { }
 
   onAdd() {
-    console.log("I am here");
-
     if (this.recipeFormData.valid) {
 
       const recipeData: Recipe = {
-        idMeal: this.recipeFormData.get("idMeal")!.value || "",
+
+        idMeal: (this.recipeService.recipeCollection.length + 1).toString(),
 
         strMeal: this.recipeFormData.get("strMeal")!.value || "",
 
@@ -54,13 +49,12 @@ export class AddRecipeComponent {
 
         strTags: this.recipeFormData.get("strTags")!.value || "",
 
-        ingredients: this.recipeFormData.get("ingredients")!.value || "",
+        stringredients: this.recipeFormData.get("ingredients")!.value || "",
       }
-      console.log(JSON.stringify(recipeData));
 
       this.recipeService.addRecipe(recipeData)
     }
-    console.log("Meal : " + JSON.stringify(this.recipeFormData!.value));
 
+    this.updateState.emit(false)
   }
 }

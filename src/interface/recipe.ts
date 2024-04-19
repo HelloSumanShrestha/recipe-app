@@ -6,5 +6,5 @@ export interface Recipe {
     strInstructions: string;
     strMealThumb: string;
     strTags: string;
-    ingredients: string;
+    stringredients: string;
 }

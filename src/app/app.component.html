@@ -2,12 +2,15 @@
 
 <header>
     <app-header></app-header>
-    <app-chips (updateState)="changeState($event)"></app-chips>
+    <div class="add-button-container">
+        <button class="add-btn" *ngIf="!addActiveState" (click)="changeState(true)">Add Recipe</button>
+        <button class="cancel-btn" *ngIf="addActiveState" (click)="changeState(false)">Cancel</button>
+    </div>
 </header>
 
 <!-- Add Component -->
 @if (addActiveState) {
-<app-add-recipe></app-add-recipe>
+<app-add-recipe (updateState)="changeState($event)"></app-add-recipe>
 }
 
 <!-- For Routes -->

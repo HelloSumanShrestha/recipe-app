@@ -4,14 +4,13 @@ import { CommonModule } from '@angular/common';
 import { RecipesCollectionService } from '../services/recipes-collection.service';
 import { AddRecipeComponent } from '../components/add-recipe/add-recipe.component';
 import { HeaderComponent } from "../components/header/header.component";
-import { ChipsComponent } from "../components/chips/chips.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, CommonModule, AddRecipeComponent, HeaderComponent, ChipsComponent, RouterOutlet, RouterLink, RouterLinkActive]
+  imports: [RouterOutlet, CommonModule, AddRecipeComponent, HeaderComponent, RouterOutlet, RouterLink, RouterLinkActive]
 })
 
 export class AppComponent {
@@ -21,7 +20,9 @@ export class AppComponent {
 
   addActiveState: boolean = false
 
-  changeState(activeState: boolean) {
-    this.addActiveState = activeState
+  changeState(addActiveState: boolean) {
+    console.log("I am here to test the state of the button " + addActiveState);
+    this.addActiveState = addActiveState
   }
+
 }

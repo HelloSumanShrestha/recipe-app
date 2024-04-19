@@ -1,1 +1,15 @@
-<p>my-recipe works!</p>
+<div class="my-recipe-container">
+    <div class="my-recipe-container-items" *ngFor="let recipe of collection">
+        <img src={{recipe.strMealThumb}} alt="">
+        <div class="text">
+            <a routerLink="/my-recipes/detail" (click)="onClick(recipe)">
+                <h2>
+                    {{recipe.strMeal}}
+                </h2>
+                <p>{{recipe.strCategory}}</p>
+                <p>{{recipe.strArea}}</p>
+                <p>Tags : {{recipe.strTags}}</p>
+            </a>
+        </div>
+    </div>
+</div>

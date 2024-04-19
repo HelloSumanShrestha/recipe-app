@@ -1,0 +1,37 @@
+<div class="recipe-card">
+    <div class="recipe-card-top">
+        <img [src]="recipe.strMealThumb" [alt]="recipe.strMeal">
+
+        <div class="recipe-card-top-text">
+            <h2>{{ recipe.strMeal }}</h2>
+            <span>{{ recipe.strCategory }}</span>
+            <span>{{ recipe.strArea }}</span>
+            <span>Tags : {{ recipe.strTags}}</span>
+        </div>
+    </div>
+
+    <div class="recipe-card-bottom">
+
+        <div class="ingredient">
+            <h2>
+                Ingredient
+            </h2>
+            <ul>
+                <ng-container *ngFor="let i of ingredients">
+                    <li *ngIf="i !== ''">{{ i }}</li>
+                </ng-container>
+            </ul>
+        </div>
+
+        <div class="instruction">
+            <h2>
+                Instructions
+            </h2>
+            <ul>
+                <ng-container *ngFor="let i of instructions">
+                    <li *ngIf="i !== ''">{{ i }}</li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</div>
