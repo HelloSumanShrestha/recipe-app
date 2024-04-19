@@ -1,7 +1,9 @@
 <!-- header components -->
 
-<app-header></app-header>
-<app-chips (updateState)="changeState($event)"></app-chips>
+<header>
+    <app-header></app-header>
+    <app-chips (updateState)="changeState($event)"></app-chips>
+</header>
 
 <!-- Add Component -->
 @if (addActiveState) {

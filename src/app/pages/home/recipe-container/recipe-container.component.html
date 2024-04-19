@@ -1,0 +1,13 @@
+<div class="recipe-category-container">
+  <div class="recipe-container-items" *ngFor="let category of categories">
+    <img src={{category.strCategoryThumb}} alt="">
+    <div class="text">
+      <a routerLink="/categories" (click)="categoryOnClick(category.strCategory)">
+        <h2>
+          {{category.strCategory}}
+        </h2>
+        <p>{{category.strCategoryDescription}}</p>
+      </a>
+    </div>
+  </div>
+</div>

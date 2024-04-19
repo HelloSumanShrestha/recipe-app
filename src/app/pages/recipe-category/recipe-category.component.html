@@ -1,0 +1,32 @@
+<!-- This is the components for the recipes by category -->
+
+<div class="recipe-by-category">
+
+    @if(categorySelected!==""){
+    <h2>
+        Category : {{categorySelected}}
+    </h2>
+    }
+    @else{
+    <h2 style="text-align: center;">No categories Selected! <a routerLink="/"
+            style="text-decoration: underline; cursor: pointer;">Back
+            to HomePage</a>
+    </h2>
+    }
+
+    <!-- All recipes by category -->
+
+    <div class="recipe-by-category-container">
+        <div class="recipe-container-items" *ngFor="let recipe of recipesByCategory">
+            <img src={{recipe.strMealThumb}} alt="">
+            <div class="text">
+                <a routerLink="/recipe" (click)="onRecipeSelection(recipe.idMeal)">
+                    <p>{{recipe.idMeal}}</p>
+                    <h2>
+                        {{recipe.strMeal}}
+                    </h2>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
