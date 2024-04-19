@@ -10,6 +10,18 @@
                 <p>{{recipe.strArea}}</p>
                 <p>Tags : {{recipe.strTags}}</p>
             </a>
+            <div class="action-buttons">
+                <button type="button" (click)="updateState(true, recipe)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button type="button" class="delete" (click)="onDelete(recipe)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
         </div>
     </div>
 </div>
+
+@if(editState){
+<app-edit-recipe (updateState)="onCancel($event)"></app-edit-recipe>
+}

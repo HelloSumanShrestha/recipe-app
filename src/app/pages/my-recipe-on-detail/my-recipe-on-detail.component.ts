@@ -20,7 +20,7 @@ export class MyRecipeOnDetailComponent {
 
   constructor(private service: RecipesCollectionService) {
     this.recipe = this.service.recipe
-    this.instructions = this.recipe.strInstructions.split('.');
-    this.ingredients = this.recipe.stringredients.split('\n');
+    this.instructions = this.recipe.strInstructions.split('.' || "\n");
+    this.ingredients = this.recipe.strIngredients.split('\n' || ".");
   }
 }

@@ -49,7 +49,7 @@ export class AddRecipeComponent {
 
         strTags: this.recipeFormData.get("strTags")!.value || "",
 
-        stringredients: this.recipeFormData.get("ingredients")!.value || "",
+        strIngredients: this.recipeFormData.get("ingredients")!.value || "",
       }
 
       this.recipeService.addRecipe(recipeData)
