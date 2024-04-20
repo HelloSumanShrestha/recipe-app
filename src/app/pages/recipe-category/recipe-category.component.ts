@@ -12,27 +12,31 @@ import { RouterLink } from '@angular/router';
   templateUrl: './recipe-category.component.html',
   styleUrl: './recipe-category.component.css'
 })
+
 export class RecipeCategoryComponent implements OnInit {
 
+  categorySelected: string = '';
+
+  recipesByCategory: RecipeByCategory[] = [];
 
   constructor(private service: CategoryServiceService) { }
 
-  categorySelected: string = this.service.categorySelected
-
-  recipesByCategory: RecipeByCategory[] = []
-
   ngOnInit(): void {
-    this.service.getRecipesByCategory().subscribe(data => this.recipesByCategory = data.meals)
-    console.log(this.recipesByCategory);
-  }
+    this.service.categorySelected$.subscribe(category => {
 
-  ngOnChanges(): void {
-    this.service.getRecipesByCategory().subscribe(data => {
-      this.recipesByCategory = data.meals;
+      this.categorySelected = category;
+
+      this.service.getRecipesByCategory().subscribe(data => {
+
+        this.recipesByCategory = data.meals;
+        console.log(this.recipesByCategory);
+
+      });
     });
   }
 
   onRecipeSelection(recipeId: string) {
-    this.service.onRecipeSelection(recipeId)
+    this.service.onRecipeSelection(recipeId);
   }
+
 }

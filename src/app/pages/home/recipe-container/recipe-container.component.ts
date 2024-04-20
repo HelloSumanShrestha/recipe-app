@@ -4,6 +4,7 @@ import { Category } from './../../../../interface/category';
 import { ApiService } from '../../../../services/api.service';
 import { RouterLink } from '@angular/router';
 import { CategoryServiceService } from '../../../../services/category-service.service';
+import { BrowserStorageService } from '../../../../services/browser-storage.service';
 
 @Component({
   selector: 'app-recipe-container',
@@ -20,8 +21,8 @@ export class RecipeContainerComponent implements OnInit {
   apiService = inject(ApiService);
   categoryService = inject(CategoryServiceService)
 
-  constructor() {
-    const categoryData = localStorage.getItem("categories")
+  constructor(private localStorage: BrowserStorageService) {
+    const categoryData = this.localStorage.get("categories")
     if (categoryData) {
       this.categories = JSON.parse(categoryData)
     }
@@ -29,10 +30,10 @@ export class RecipeContainerComponent implements OnInit {
 
   ngOnInit(): void {
     // to fetch the data from api, check if the data already exists in the localstorage
-    if (localStorage.getItem("categories") === null) {
+    if (this.localStorage.get("categories") === null) {
 
       this.apiService.getCategories().subscribe(data => {
-        localStorage.setItem("categories", JSON.stringify(data.categories))
+        this.localStorage.set("categories", JSON.stringify(data.categories))
         this.categories = data.categories
       }
       )

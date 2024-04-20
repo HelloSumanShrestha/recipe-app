@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { FormControl, FormGroup, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { CategoryServiceService } from '../../services/category-service.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,17 @@ export class HeaderComponent {
     searchItem: new FormControl("")
   })
 
+  constructor(private service: CategoryServiceService, private router: Router) { }
+
   handleSubmit() {
-    alert(this.formData.value.searchItem)
+
+    const searchdata = this.formData.get("searchItem")!.value
+
+    if (searchdata) {
+      this.service.onCategorySelection(searchdata)
+      this.router.navigate(["/explore"])
+
+    }
+
   }
 }

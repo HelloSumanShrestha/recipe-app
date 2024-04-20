@@ -1,1 +1,58 @@
-<p>explore works!</p>
+<div class="explore-container">
+    <div class="category-chips">
+        <div class="chip" *ngFor="let chip of categoryChips" (click)="onChipSelection(chip)"
+            [ngClass]="active === chip ? 'chip-active':'chip'">
+            {{chip}}
+        </div>
+    </div>
+
+    <div class="search-results">
+
+        <!--  For Local Recipe -->
+
+        <div class="from-local" *ngIf="localRecipes.length > 0">
+            <h2>
+                From Your Recipe Collection
+            </h2>
+
+            <div class="recipe-by-category-container">
+                <div class="recipe-container-items" *ngFor="let recipe of localRecipes">
+                    <img src={{recipe.strMealThumb}} alt="">
+                    <div class="text">
+                        <a routerLink="/my-recipes/detail" (click)="onLocalClick(recipe.idMeal)">
+                            <p>{{recipe.idMeal}}</p>
+                            <h2>
+                                {{recipe.strMeal}}
+                            </h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- For Api Recipes -->
+
+        <div class="from-api">
+
+            <div class="recipe-by-category">
+
+                <h2>Search Results</h2>
+
+                <div class="recipe-by-category-container">
+                    <div class="recipe-container-items" *ngFor="let recipe of recipesByCategory">
+                        <img src={{recipe.strMealThumb}} alt="">
+                        <div class="text">
+
+                            <a (click)="onApiClick(recipe.idMeal)" routerLink="/recipe">
+                                <p>{{recipe.idMeal}}</p>
+                                <h2>
+                                    {{recipe.strMeal}}
+                                </h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
